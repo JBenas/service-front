@@ -29,6 +29,7 @@ export default (props) => {
                 <Route exact path='/equipamiento/add' component={AgregarEquipamiento}/>
                 <Route exact path='/equipamiento/edit/:id' component={EditarEquipamiento}/>
                 <Route exact path='/equipamiento' component={ListaEquipamiento}/>
+                <Route exact path='/pebellon' component={ListaEquipamiento}/>
             </div>
         </div>
         </Router>
