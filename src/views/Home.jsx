@@ -21,16 +21,9 @@ export default (props) => {
                 <Route exact path='/'>
                     <h1>SAPASI BREOOO</h1>
                 </Route>
-                <Route exact path='/personal/add' >
-                    <AgregarPersonal/>
-                </Route>
-                <Route exact path='/personal/:id' component={EditarPersonal}>
-                
-                </Route>
-
-                <Route exact path='/personal'>
-                    <Table/>
-                </Route>
+                <Route exact path='/personal/add' component={AgregarPersonal} />
+                <Route exact path='/personal/editar/:id' component={EditarPersonal}/>
+                <Route exact path='/personal' component={Table}/>
             </div>
         </div>
         </Router>
