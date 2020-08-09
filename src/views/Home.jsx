@@ -5,6 +5,10 @@ import Table from '../components/Table'
 import AgregarPersonal from '../components/AgregarPersonal'
 import EditarPersonal from '../components/EditarPersonal'
 
+import AgregarEquipamiento from '../components/AgregarEquipamiento'
+import EditarEquipamiento from '../components/EditarEquipamiento'
+import ListaEquipamiento from '../components/ListaEquipamiento'
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -16,21 +20,19 @@ export default (props) => {
     return (
         <Router>
         <div>
-            <Navbar></Navbar>
+            <Navbar/>
             <div>
-                <Route exact path='/'>
-                    <h1>SAPASI BREOOO</h1>
-                </Route>
+                <Route exact path='/'/>
                 <Route exact path='/personal/add' >
                     <AgregarPersonal/>
                 </Route>
-                <Route exact path='/personal/:id' component={EditarPersonal}>
-                
-                </Route>
-
+                <Route exact path='/personal/:id' component={EditarPersonal}/>
                 <Route exact path='/personal'>
                     <Table/>
                 </Route>
+                <Route exact path='/equipamiento/add' component={AgregarEquipamiento}/>
+                <Route exact path='/equipamiento/edit/:id' component={EditarEquipamiento}/>
+                <Route exact path='/equipamiento' component={ListaEquipamiento}/>
             </div>
         </div>
         </Router>
