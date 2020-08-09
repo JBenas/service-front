@@ -19,7 +19,7 @@ export default class PersonList extends React.Component {
     }
 
     editar = (id,e)=>{
-        window.location = `/personal/${id}`;
+        window.location = `/personal/editar/${id}`;
     }
 
     componentDidMount() {

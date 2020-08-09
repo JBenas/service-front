@@ -23,13 +23,9 @@ export default (props) => {
             <Navbar/>
             <div>
                 <Route exact path='/'/>
-                <Route exact path='/personal/add' >
-                    <AgregarPersonal/>
-                </Route>
-                <Route exact path='/personal/:id' component={EditarPersonal}/>
-                <Route exact path='/personal'>
-                    <Table/>
-                </Route>
+                <Route exact path='/personal/add' component={AgregarPersonal}/>
+                <Route exact path='/personal/edit/:id' component={EditarPersonal}/>
+                <Route exact path='/personal' component={Table}/>
                 <Route exact path='/equipamiento/add' component={AgregarEquipamiento}/>
                 <Route exact path='/equipamiento/edit/:id' component={EditarEquipamiento}/>
                 <Route exact path='/equipamiento' component={ListaEquipamiento}/>
