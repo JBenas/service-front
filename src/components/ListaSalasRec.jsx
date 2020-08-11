@@ -5,25 +5,25 @@ const BACKEND = "http://localhost:8088"
 
 export default class EquipmentList extends React.Component {
     state = {
-        pabellones: []
+        salas: []
     }
 
     eliminar = (id, e) => {
-        axios.delete(`${BACKEND}/pabellon/${id}`)
+        axios.delete(`${BACKEND}/salas/${id}`)
             .then(res => {
                 window.location.reload(true);
             })
     }
     // TODO: verificar funcion
     editar = (id, e) => {
-        window.location = `/pabellon/edit/${id}`;
+        window.location = `/salas/edit/${id}`;
     }
 
     componentDidMount() {
-        axios.get(`${BACKEND}/pabellon/`)
+        axios.get(`${BACKEND}/salas/`)
             .then(res => {
-                const pabellones = res.data;
-                this.setState({pabellones});
+                const salas = res.data;
+                this.setState({salas});
             })
     }
 
@@ -35,6 +35,7 @@ export default class EquipmentList extends React.Component {
                     <tr>
                         <th scope="col">Nro. Sala</th>
                         <th scope="col">Descripcion</th>
+                        <th scope="col">Cama</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Opciones</th>
                     </tr>
@@ -44,6 +45,7 @@ export default class EquipmentList extends React.Component {
                         <tr key={pabellon.id}>
                             <td>{pabellon.sala}</td>
                             <td>{equipment.description}</td>
+                            <td>{equipment.cama}</td>
                             <td>{equipment.estado}</td>
                             <td>
                                 <button className='btn btn-sm btn-warning' onClick={(e) => this.editar(equipment.id, e)}>

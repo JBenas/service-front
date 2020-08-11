@@ -8,15 +8,16 @@ export default class editarPersonal extends React.Component {
     state = {
         sala: '',
         state:'',
+        cama:'',
         description:''
       }
     
 
     componentDidMount() {
-        axios.get(`${BACKEND}/pabellon/${this.props.match.params.id}`)
+        axios.get(`${BACKEND}/salas/${this.props.match.params.id}`)
             .then(res => {
-                const pabellon = res.data;
-                this.setState( pabellon );
+                const sala = res.data;
+                this.setState( sala );
                 // console.log(this.state);
             })
     }
@@ -30,17 +31,16 @@ export default class editarPersonal extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
     
-        const pabellon = {
+        const sala = {
             sala: this.state.sala,
             state: this.state.state,
+            cama: this.state.camaa,
             description: this.state.description,
         };
 
-        axios.put(`${BACKEND}/pabellon/${this.props.match.params.id}`, pabellon)
+        axios.put(`${BACKEND}/salas/${this.props.match.params.id}`, sala)
           .then(res => {
-            if(res.data) {
-                window.location = '/pabellon'
-            }
+            window.location = '/salas'
           })
       }
 
@@ -60,6 +60,11 @@ export default class editarPersonal extends React.Component {
                     </div>
                     
                     
+                    <div className="form-group">
+                        <label htmlFor="Telefono">Cama</label>
+                        <textarea  required type="text" className="form-control" value={this.state.cama} name="cama" onChange={this.handleChange}></textarea>
+                    </div>
+
                     <div className="form-group">
                         <label htmlFor="Telefono">Descripción</label>
                         <textarea  required type="text" className="form-control" value={this.state.description} name="description" onChange={this.handleChange}></textarea>

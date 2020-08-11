@@ -36,11 +36,9 @@ export default class editarPersonal extends React.Component {
             description: this.state.description,
         };
 
-        axios.put(`${BACKEND}/pabellon/${this.props.match.params.id}`, pabellon)
+        axios.post(`${BACKEND}/pabellon/${this.props.match.params.id}`, pabellon)
           .then(res => {
-            if(res.data) {
-                window.location = '/pabellon'
-            }
+            window.location = '/pabellon'
           })
       }
 
@@ -61,7 +59,7 @@ export default class editarPersonal extends React.Component {
                     
                     
                     <div className="form-group">
-                        <label htmlFor="Telefono">Descripción</label>
+                        <label htmlFor="Telefono">Decripción</label>
                         <textarea  required type="text" className="form-control" value={this.state.description} name="description" onChange={this.handleChange}></textarea>
                     </div>
                     
