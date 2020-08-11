@@ -22,7 +22,13 @@ export default (props) => {
         <div>
             <Navbar/>
             <div>
-                <Route exact path='/'/>
+                <Route exact path='/'>
+                    <div className='container'>
+                        <h1>
+                            Bienvenidos al Sistema de gestion de pabellones y sillones
+                        </h1>
+                    </div>
+                </Route>
                 <Route exact path='/personal/add' component={AgregarPersonal}/>
                 <Route exact path='/personal/editar/:id' component={EditarPersonal}/>
                 <Route exact path='/personal' component={Table}/>
