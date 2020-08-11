@@ -34,7 +34,7 @@ export default class EquipmentList extends React.Component {
                     <thead>
                     <tr>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Descripcion</th>
+                        <th scope="col" style={{ width: "20%"}}>Descripción</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Marca</th>
                         <th scope="col">Modelo</th>
@@ -49,7 +49,7 @@ export default class EquipmentList extends React.Component {
                     {this.state.equipments.map((equipment) =>
                         <tr key={equipment.id}>
                             <td>{equipment.nombre}</td>
-                            <td>{equipment.description}</td>
+                            <td>{equipment.descripcion}</td>
                             <td>{equipment.tipo}</td>
                             <td>{equipment.marca}</td>
                             <td>{equipment.modelo}</td>
